@@ -4,7 +4,6 @@ data "yandex_compute_image" "this" {
 }
 
 data "yandex_vpc_subnet" "this" {
-  zone = var.zones[0]
   name = var.subnet
 }
 
