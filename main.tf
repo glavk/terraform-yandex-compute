@@ -44,6 +44,6 @@ resource "yandex_compute_instance" "this" {
   }
 
   depends_on = [
-    yandex_vpc_subnet.this
+    data.yandex_vpc_subnet.this
   ]
 }
