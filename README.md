@@ -1,0 +1,1 @@
+https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/compute_instance
