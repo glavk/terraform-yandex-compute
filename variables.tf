@@ -1,3 +1,9 @@
+variable "instance_count" {
+  description = "Yandex Cloud Compute instance count"
+  type        = number
+  default     = 1
+}
+
 variable "platform_id" {
   description = "The type of virtual machine to create"
   type        = string
@@ -20,7 +26,7 @@ variable "zones" {
 }
 
 variable "name" {
-  description = "Yandex Cloud Compute (VM) name"
+  description = "Yandex Cloud Compute instance name"
   type        = string
 }
 
@@ -96,4 +102,10 @@ variable "ssh_pubkey" {
   description = "SSH public key for access to the instance"
   type        = string
   default     = "~/.ssh/id_rsa.pub"
+}
+
+variable "secondary_disk_id" {
+  description = "ID of the disk that is attached to the instance"
+  type        = set(string)
+  default     = []
 }

@@ -8,6 +8,8 @@ data "yandex_vpc_subnet" "this" {
 }
 
 resource "yandex_compute_instance" "this" {
+  count = var.instance_count
+
   name        = var.name
   platform_id = var.platform_id
   zone        = var.zones[0]
@@ -25,6 +27,13 @@ resource "yandex_compute_instance" "this" {
       image_id = data.yandex_compute_image.this.id
       type     = "network-ssd"
       size     = var.size
+    }
+  }
+
+  dynamic "secondary_disk" {
+    for_each = var.secondary_disk_id
+    content {
+      disk_id = secondary_disk_id.key
     }
   }
 
