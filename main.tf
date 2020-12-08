@@ -53,6 +53,8 @@ resource "yandex_compute_instance" "this" {
     ssh-keys = "${var.ssh_username}:${file("${var.ssh_pubkey}")}"
   }
 
+  allow_stopping_for_update = true
+
   depends_on = [
     data.yandex_vpc_subnet.this
   ]
