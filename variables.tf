@@ -92,6 +92,12 @@ variable "nat_ip_address" {
   default     = ""
 }
 
+variable "ip_address" {
+  description = "The private IP address to assign to the instance. If empty, the address will be automatically assigned from the specified subnet"
+  type        = string
+  default     = ""
+}
+
 variable "ssh_username" {
   description = "User for SSH access to the instance"
   type        = string

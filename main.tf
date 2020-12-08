@@ -42,6 +42,7 @@ resource "yandex_compute_instance" "this" {
     nat                = var.is_nat
     nat_ip_address     = var.nat_ip_address
     security_group_ids = var.sg_id
+    ip_address         = var.ip_address
   }
 
   scheduling_policy {
