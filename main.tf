@@ -35,7 +35,7 @@ resource "yandex_compute_instance" "this" {
   }
 
   dynamic "secondary_disk" {
-    for_each = var.secondary_disk_id
+    #for_each = var.secondary_disk_id
     content {
       disk_id = data.yandex_compute_disk.secondary_disk.id
     }
