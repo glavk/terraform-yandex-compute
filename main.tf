@@ -4,7 +4,7 @@ data "yandex_compute_image" "this" {
 }
 
 data "yandex_compute_disk" "secondary_disk" {
-  disk_id = var.secondary_disk_id
+  disk_id = var.secondary_disk_id[0]
 }
 
 data "yandex_vpc_subnet" "this" {
@@ -35,7 +35,7 @@ resource "yandex_compute_instance" "this" {
   }
 
   dynamic "secondary_disk" {
-    #for_each = var.secondary_disk_id
+    for_each = var.secondary_disk_id
     content {
       disk_id = data.yandex_compute_disk.secondary_disk.id
     }
