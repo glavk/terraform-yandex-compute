@@ -112,6 +112,6 @@ variable "ssh_pubkey" {
 
 variable "secondary_disk_id" {
   description = "ID of the disk that is attached to the instance"
-  type        = set(string)
-  default     = []
+  type        = string
+  default     = ""
 }
