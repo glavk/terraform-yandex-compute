@@ -9,6 +9,7 @@ variable "platform_id" {
   type        = string
   default     = "standard-v2"
 }
+
 variable "folder_id" {
   description = "Yandex Cloud Folder ID where resources will be created"
   type        = string
