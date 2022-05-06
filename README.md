@@ -1,5 +1,54 @@
 # Terraform module for Yandex.Cloud Compute
 
+Terraform module which creates [compute instance](https://cloud.yandex.ru/services/compute) on [Yandex.Cloud](https://cloud.yandex.ru/).
+
+## Usage
+
+Before using this module, you need to configure provider (or copy `versions.tf`):
+```terraform
+terraform {
+  required_version = ">= 0.13"
+
+  required_providers {
+    yandex = {
+      source  = "yandex-cloud/yandex"
+      version = ">= 0.47.0"
+    }
+
+  }
+}
+```
+
+### Preemtible instance (Spot instance) 
+
+```terraform
+module "compute" {
+  source  = "glavk/compute/yandex"
+  version = "0.1.2"
+
+  image_family = "ubuntu-docker"
+  subnet       = "sn-dev-0"
+  folder_id    = "xxx"
+
+  name     = "development"
+  hostname = "dev"
+  is_nat   = true
+
+  cores  = 2
+  memory = 4
+  size   = "10"
+
+  preemptible = true
+
+  sg_id = ["xxx"]
+
+}
+```
+
+## Examples
+
+- [Dev instance example](https://github.com/glavk/terraform-yandex-compute/tree/master/examples/dev-instance)
+
 ## Requirements
 
 | Name | Version |
