@@ -1,7 +1,12 @@
 repos:
-  - repo: git://github.com/antonbabenko/pre-commit-terraform
-    rev: v1.45.0
+  - repo: https://github.com/gruntwork-io/pre-commit
+    rev: v0.1.17
     hooks:
-      - id: terraform_fmt
-      - id: terraform_tflint
-      - id: terraform_docs
+      - id: terraform-fmt
+      - id: terraform-validate
+      - id: tflint
+
+- repo: https://github.com/antonbabenko/pre-commit-terraform
+  rev: v1.71.0
+  hooks:
+    - id: terraform_docs
