@@ -24,7 +24,7 @@ terraform {
 ```terraform
 module "compute" {
   source  = "glavk/compute/yandex"
-  version = "0.1.2"
+  version = "0.1.13"
 
   image_family = "ubuntu-docker"
   subnet       = "sn-dev-0"
